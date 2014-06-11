@@ -7,9 +7,11 @@
 /*
 To compile the program:
     % g++-4.7 -fprofile-arcs -ftest-coverage -pedantic -std=c++11 -Wall Collatz.c++ RunCollatz.c++ -o RunCollatz
+    g++ -fprofile-arcs -ftest-coverage -pedantic -std=c++11 -Wall Collatz.c++ RunCollatz.c++ -o RunCollatz
 
 To run the program:
     % valgrind RunCollatz < RunCollatz.in
+    valgrind ./RunCollatz < RunCollatz.in > RunCollatz.out
 
 To obtain coverage of the run:
 	% gcov-4.7 -b Collatz.c++ RunCollatz.c++
