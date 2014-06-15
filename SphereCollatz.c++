@@ -1,18 +1,20 @@
-// ----------------------------
-// projects/collatz/Collatz.c++
-// Copyright (C) 2014
-// Glenn P. Downing
-// ----------------------------
+// -------
+// defines
+// -------
+
+#ifdef ONLINE_JUDGE
+    #define NDEBUG
+#endif
 
 // --------
 // includes
 // --------
 
+#include <iostream> // cin, cout
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 #include <utility>  // make_pair, pair
 
-#include "Collatz.h"
 
 // ------------
 // collatz_read
@@ -101,3 +103,14 @@ void collatz_solve (std::istream& r, std::ostream& w) {
     		return;
         const int v = collatz_eval(p.first, p.second);
         collatz_print(w, p.first, p.second, v);}}
+
+
+
+// ----
+// main
+// ----
+
+int main () {
+    using namespace std;
+    collatz_solve(cin, cout);
+    return 0;}
