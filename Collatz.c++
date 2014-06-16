@@ -14,6 +14,7 @@
 
 #include "Collatz.h"
 
+using namespace std;
 // ------------
 // collatz_read
 // ------------
@@ -45,7 +46,8 @@ int collatz_find_cycle_length(int n) {
     }
     else
     {
-        x = (3 * n +1) / 2;
+        // x = (3 * n +1) / 2;
+        x = n + (n >> 1) + 1;
         return collatz_find_cycle_length(x) + 2;
     }
 
@@ -60,6 +62,7 @@ int collatz_eval (int i, int j) {
     // <your code>
     int temp_swap;
     int highest_cycle_length = 0;
+    
 
     // switch i and j if i>j
     if (i > j)
@@ -70,7 +73,15 @@ int collatz_eval (int i, int j) {
     }
     assert(i <= j);
 
-    for (int x = i; x <= j; x++)
+    int a = i;
+
+    if (j > 1)
+    { 
+        int a = j/2;
+        // cout << "j/2: " << a << endl;
+    }
+
+    for (int x = a; x <= j; x++)
     {
         int cycle_length = collatz_find_cycle_length(x);
 

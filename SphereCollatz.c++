@@ -15,17 +15,17 @@
 #include <iostream> // endl, istream, ostream
 #include <utility>  // make_pair, pair
 
-
+using namespace std;
 // ------------
 // collatz_read
 // ------------
 
 std::pair<int, int> collatz_read (std::istream& r) {
-	int i;
+    int i;
     r >> i;
     if (!r)
         return std::make_pair(0, 0);
-	int j;
+    int j;
     r >> j;
     return std::make_pair(i, j);}
 
@@ -47,7 +47,8 @@ int collatz_find_cycle_length(int n) {
     }
     else
     {
-        x = (3 * n +1) / 2;
+        // x = (3 * n +1) / 2;
+        x = n + (n >> 1) + 1;
         return collatz_find_cycle_length(x) + 2;
     }
 
@@ -62,6 +63,7 @@ int collatz_eval (int i, int j) {
     // <your code>
     int temp_swap;
     int highest_cycle_length = 0;
+    
 
     // switch i and j if i>j
     if (i > j)
@@ -72,7 +74,15 @@ int collatz_eval (int i, int j) {
     }
     assert(i <= j);
 
-    for (int x = i; x <= j; x++)
+    int a = i;
+
+    if (j > 1)
+    { 
+        int a = j/2;
+        // cout << "j/2: " << a << endl;
+    }
+
+    for (int x = a; x <= j; x++)
     {
         int cycle_length = collatz_find_cycle_length(x);
 
@@ -82,6 +92,7 @@ int collatz_eval (int i, int j) {
         }
     }
 
+    // return collatz_find_cycle_length(j);
     return highest_cycle_length;
 }
 
@@ -98,13 +109,11 @@ void collatz_print (std::ostream& w, int i, int j, int v) {
 
 void collatz_solve (std::istream& r, std::ostream& w) {
     while (true) {
-    	const std::pair<int, int> p = collatz_read(r);
-    	if (p == std::make_pair(0, 0))
-    		return;
+        const std::pair<int, int> p = collatz_read(r);
+        if (p == std::make_pair(0, 0))
+            return;
         const int v = collatz_eval(p.first, p.second);
         collatz_print(w, p.first, p.second, v);}}
-
-
 
 // ----
 // main
