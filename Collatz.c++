@@ -80,6 +80,7 @@ int collatz_eval (int i, int j) {
         }
     }
 
+    // return collatz_find_cycle_length(j);
     return highest_cycle_length;
 }
 

@@ -58,6 +58,19 @@ TEST(Collatz, read) {
     ASSERT_EQ( 1, p.first);
     ASSERT_EQ(10, p.second);}
 
+TEST(Collatz, read_swapped) {
+    std::istringstream r("10 1\n");
+    const std::pair<int, int> p = collatz_read(r);
+    ASSERT_EQ(10, p.first);
+    ASSERT_EQ(1, p.second);}
+
+TEST(Collatz, read_same) {
+    std::istringstream r("10 10\n");
+    const std::pair<int, int> p = collatz_read(r);
+    ASSERT_EQ(10, p.first);
+    ASSERT_EQ(10, p.second);}
+    
+
 // ----
 // eval
 // ----
@@ -78,6 +91,18 @@ TEST(Collatz, eval_4) {
     const int v = collatz_eval(900, 1000);
     ASSERT_EQ(174, v);}
 
+TEST(Collatz, eval_swapped) {
+    const int v = collatz_eval(1000, 900);
+    ASSERT_EQ(174, v);}
+
+TEST(Collatz, eval_base_case) {
+    const int v = collatz_eval(1, 1);
+    ASSERT_EQ(1, v);}
+
+TEST(Collatz, eval_1_to_3 {
+    const int v = collatz_eval(1, 3);
+    ASSERT_EQ(8, v);}
+
 // -----
 // print
 // -----
@@ -86,6 +111,16 @@ TEST(Collatz, print) {
     std::ostringstream w;
     collatz_print(w, 1, 10, 20);
     ASSERT_EQ("1 10 20\n", w.str());}
+
+TEST(Collatz, print_swapped) {
+    std::ostringstream w;
+    collatz_print(w, 10, 1, 20);
+    ASSERT_EQ("10 1 20\n", w.str());}
+
+TEST(Collatz, print_same {
+    std::ostringstream w;
+    collatz_print(w, 10, 10, 10);
+    ASSERT_EQ("10 10 10\n", w.str());}
 
 // -----
 // solve
@@ -96,6 +131,37 @@ TEST(Collatz, solve) {
     std::ostringstream w;
     collatz_solve(r, w);
     ASSERT_EQ("1 10 20\n100 200 125\n201 210 89\n900 1000 174\n", w.str());}
+
+TEST(Collatz, solve_same) {
+    std::istringstream r("1 1\n2 2\n3 3\n4 4\n");
+    std::ostringstream w;
+    collatz_solve(r, w);
+    ASSERT_EQ("1 1 1\n2 2 2\n3 3 8\n4 4 3\n", w.str());}
+
+TEST(Collatz, solve_swapped) {
+    std::istringstream r("10 1\n200 100\n210 201\n1000 900\n");
+    std::ostringstream w;
+    collatz_solve(r, w);
+    ASSERT_EQ("10 1 20\n200 100 125\n210 201 89\n1000 900 174\n", w.str());}
+
+// -----
+// find_cycle_length
+// -----
+
+TEST(Collatz, find_cycle_length_1) {
+    onst int v = collatz_find_cycle_length(1);
+    ASSERT_EQ(1, v);}
+}
+
+TEST(Collatz, find_cycle_length_5) {
+    onst int v = collatz_find_cycle_length(5);
+    ASSERT_EQ(6, v);}
+}
+
+TEST(Collatz, find_cycle_length_10) {
+    onst int v = collatz_find_cycle_length(5);
+    ASSERT_EQ(7, v);}
+}
 
 /*
 % g++-4.7 -fprofile-arcs -ftest-coverage -pedantic -std=c++11 -Wall Collatz.c++ TestCollatz.c++ -o TestCollatz -lgtest -lgtest_main -lpthread
