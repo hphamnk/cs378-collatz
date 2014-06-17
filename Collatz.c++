@@ -51,55 +51,49 @@ int collatz_find_cycle_length(int n) {
 
 	if ( (n % 2) == 0 && n > 0)
 	{
-		// cout << n << " seg fault here even" << endl;
 		x = n/2;
+
 		if (x < CACHE_SIZE && x > 0)
 		{
-			// cout << x << " seg fault reach here?" << endl;
+			
 			cycle_length_from_cache = lazy_cache[x];
-			// cout << x << " seg fault WWWWWWWWWWWTFFFFFFFFF " << endl;
+
 			if (cycle_length_from_cache == 0)
 			{
-				// cout << x << " even seg fault: cycle_length not in cache" << endl;
 				return collatz_find_cycle_length(x) + 1;
 			}
 			else
 			{
-				// cout << x << " even seg fault: cycle_length -- in -- cache " << endl;
 				return cycle_length_from_cache + 1;
 			}
 		}
 		else
 		{
-			// cout << x << " even seg fault: x bigger than cache size" << endl;
+			assert(x > CACHE_SIZE || x <= 0);
 			return collatz_find_cycle_length(x) +1 ;
 		}
 	}
 	else
 	{
-		// cout << "seg fault here odd" << endl;
 		// x = (3 * n +1) / 2;
 		x = n + (n >> 1) + 1;
-		// cout << "seg fault here" << endl;
+
 		if (x < CACHE_SIZE && x > 0)
 		{
-			
 			cycle_length_from_cache = lazy_cache[x];
 			
 			if (cycle_length_from_cache == 0)
 			{
-				// cout << x << " odd seg fault: cycle_length not in cache" << endl;
 				return collatz_find_cycle_length(x) + 2;
 			}
 			else
 			{
-				// cout << x << " odd seg fault: cycle_length -- in -- cache " << endl;
 				return cycle_length_from_cache + 2;
 			}
 		}
 		else
 		{
-			// cout << x << " odd seg fault: x bigger than cache size" << endl;
+			assert(x > CACHE_SIZE || x <= 0);
 			return collatz_find_cycle_length(x) + 2;
 		}
 	}
@@ -113,8 +107,6 @@ int collatz_eval (int i, int j) {
 	int temp_swap;
 	int biggest_cycle_length = 0;
 	int cycle_length = 0;
-
-	// cout << j << endl;
 
 	// switch i and j if i>j
 	if (i > j)
@@ -130,35 +122,25 @@ int collatz_eval (int i, int j) {
 	if (i > 1)
 	{ 
 		int a = i/2;
-		// cout << "i/2: " << a << endl;
 	}
-
-	// cout << "a: "  << a << ", i: " << i << ", j: " << j << endl;
 
 	for (int x = a; x <= j; x++)
 	{
-		// cout << "begin for loop " << i << "-" << j << " x: " << x << endl;
 		cycle_length = lazy_cache[x];
 
 		if (cycle_length == 0)
 		{
-			// cout << x << " not in cache" << endl;
 			cycle_length = collatz_find_cycle_length(x);
 			lazy_cache[x] = cycle_length;
-			// cout << x << " cycle length is: " << cycle_length << endl;
 		}
-
 
 		if (cycle_length > biggest_cycle_length)
 		{
 			biggest_cycle_length = cycle_length;
 		}
 
-		// cout << "end for loop " << i << "-" << j << " x: " << x << endl;
 	}
-
-	// cout << "biggest cycle length for " << i << "-" << j << " is "  << biggest_cycle_length << endl;
-	// return collatz_find_cycle_length(j);
+	assert (biggest_cycle_length > 0);
 	return biggest_cycle_length;
 }
 
