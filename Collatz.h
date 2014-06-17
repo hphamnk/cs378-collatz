@@ -30,7 +30,14 @@ std::pair<int, int> collatz_read (std::istream&);
 // ------------
 
 /**
- * find the cycle length of a number
+ * find the cycle length of a number recursively\n
+ * if n = 1: return 1\n
+ * if n is even: x = n / 2\n
+ * 		\t- if x < 1 million and is in cache: get cycle length from cache\n
+ *		\t- else call this function and pass x in as parameter and +1 to the cycle length that it returns\n
+ * if n is odd: x = n + (n >> 1) + 1\n
+ * 		\t- if x < 1 million and is in cache: get cycle length from cache\n
+ *		\t- else call this function and pass x in as parameter and +2 to the cycle length that it returns\n
  * @param  n number
  * @return the cycle length of n
  */
@@ -42,6 +49,15 @@ int collatz_find_cycle_length(int);
 // ------------
 
 /**
+ * if i > j: switch i and j so first input (i) is smaller than second input (j)\n
+ * if i > 1: a = i /2, then find the max cycle length from a to j to reduce unnecessary calculations\n
+ * for loop from a to j:\n
+ * 		\t if cycle length of an element is not in cache:\n
+ *			\t\t- call collatz_find_cycle_length to find its cycle length and save it into cycle_length\n
+ *		\t if cycle length of an element is in cache:\n
+ *			\t\t- get that cycle length and save it into cycle_length\n
+ *		\t- if cycle_length > biggest_cycle_length: copy cycle_length into biggest_cycle_length\n
+ * return biggest_cycle_length as answer\n
  * @param i the beginning of the range, inclusive
  * @param j the end       of the range, inclusive
  * @return the max cycle length in the range [i, j]
