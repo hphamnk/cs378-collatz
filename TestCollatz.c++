@@ -99,7 +99,7 @@ TEST(Collatz, eval_base_case) {
     const int v = collatz_eval(1, 1);
     ASSERT_EQ(1, v);}
 
-TEST(Collatz, eval_1_to_999999 {
+TEST(Collatz, eval_1_to_999999) {
     const int v = collatz_eval(1, 999999);
     ASSERT_EQ(525, v);}
 
@@ -117,7 +117,7 @@ TEST(Collatz, print_swapped) {
     collatz_print(w, 10, 1, 20);
     ASSERT_EQ("10 1 20\n", w.str());}
 
-TEST(Collatz, print_same {
+TEST(Collatz, print_same) {
     std::ostringstream w;
     collatz_print(w, 10, 10, 10);
     ASSERT_EQ("10 10 10\n", w.str());}
@@ -149,19 +149,16 @@ TEST(Collatz, solve_swapped) {
 // -----
 
 TEST(Collatz, find_cycle_length_1) {
-    onst int v = collatz_find_cycle_length(1);
+    const int v = collatz_find_cycle_length(1);
     ASSERT_EQ(1, v);}
-}
 
 TEST(Collatz, find_cycle_length_5) {
-    onst int v = collatz_find_cycle_length(5);
+    const int v = collatz_find_cycle_length(5);
     ASSERT_EQ(6, v);}
-}
 
 TEST(Collatz, find_cycle_length_10) {
-    onst int v = collatz_find_cycle_length(5);
+    const int v = collatz_find_cycle_length(10);
     ASSERT_EQ(7, v);}
-}
 
 /*
 % g++-4.7 -fprofile-arcs -ftest-coverage -pedantic -std=c++11 -Wall Collatz.c++ TestCollatz.c++ -o TestCollatz -lgtest -lgtest_main -lpthread

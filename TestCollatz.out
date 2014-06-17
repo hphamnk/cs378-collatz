@@ -1,0 +1,47 @@
+Running main() from gtest_main.cc
+[==========] Running 19 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 19 tests from Collatz
+[ RUN      ] Collatz.read
+[       OK ] Collatz.read (19 ms)
+[ RUN      ] Collatz.read_swapped
+[       OK ] Collatz.read_swapped (3 ms)
+[ RUN      ] Collatz.read_same
+[       OK ] Collatz.read_same (3 ms)
+[ RUN      ] Collatz.eval_1
+[       OK ] Collatz.eval_1 (4 ms)
+[ RUN      ] Collatz.eval_2
+[       OK ] Collatz.eval_2 (3 ms)
+[ RUN      ] Collatz.eval_3
+[       OK ] Collatz.eval_3 (1 ms)
+[ RUN      ] Collatz.eval_4
+[       OK ] Collatz.eval_4 (2 ms)
+[ RUN      ] Collatz.eval_swapped
+[       OK ] Collatz.eval_swapped (2 ms)
+[ RUN      ] Collatz.eval_base_case
+[       OK ] Collatz.eval_base_case (2 ms)
+[ RUN      ] Collatz.eval_1_to_999999
+[       OK ] Collatz.eval_1_to_999999 (946 ms)
+[ RUN      ] Collatz.print
+[       OK ] Collatz.print (10 ms)
+[ RUN      ] Collatz.print_swapped
+[       OK ] Collatz.print_swapped (3 ms)
+[ RUN      ] Collatz.print_same
+[       OK ] Collatz.print_same (3 ms)
+[ RUN      ] Collatz.solve
+[       OK ] Collatz.solve (7 ms)
+[ RUN      ] Collatz.solve_same
+[       OK ] Collatz.solve_same (4 ms)
+[ RUN      ] Collatz.solve_swapped
+[       OK ] Collatz.solve_swapped (3 ms)
+[ RUN      ] Collatz.find_cycle_length_1
+[       OK ] Collatz.find_cycle_length_1 (2 ms)
+[ RUN      ] Collatz.find_cycle_length_5
+[       OK ] Collatz.find_cycle_length_5 (2 ms)
+[ RUN      ] Collatz.find_cycle_length_10
+[       OK ] Collatz.find_cycle_length_10 (2 ms)
+[----------] 19 tests from Collatz (1033 ms total)
+
+[----------] Global test environment tear-down
+[==========] 19 tests from 1 test case ran. (1061 ms total)
+[  PASSED  ] 19 tests.

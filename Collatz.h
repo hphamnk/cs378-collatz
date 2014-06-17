@@ -26,6 +26,18 @@
 std::pair<int, int> collatz_read (std::istream&);
 
 // ------------
+// collatz_find_cycle_length
+// ------------
+
+/**
+ * find the cycle length of a number
+ * @param  n number
+ * @return the cycle length of n
+ */
+
+int collatz_find_cycle_length(int);
+
+// ------------
 // collatz_eval
 // ------------
 
