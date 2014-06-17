@@ -99,9 +99,9 @@ TEST(Collatz, eval_base_case) {
     const int v = collatz_eval(1, 1);
     ASSERT_EQ(1, v);}
 
-TEST(Collatz, eval_1_to_3 {
-    const int v = collatz_eval(1, 3);
-    ASSERT_EQ(8, v);}
+TEST(Collatz, eval_1_to_999999 {
+    const int v = collatz_eval(1, 999999);
+    ASSERT_EQ(525, v);}
 
 // -----
 // print
