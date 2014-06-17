@@ -1,0 +1,77 @@
+commit 418ae2b9c7b41d0e7fb86555363c8bf181fc5b22
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Tue Jun 17 15:03:36 2014 -0700
+
+    Added doxygen files
+
+commit e6e124b41b5d09c1c43df24073b6b2bbdcde7d3d
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Tue Jun 17 14:26:35 2014 -0700
+
+    Added assertions, removed cout for debugging, Problem V2 Accepted
+
+commit bf13243bcbf6afab3926f698aacb028a2f81b578
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Tue Jun 17 05:18:22 2014 -0500
+
+    Double checked with CS Lab Machine
+
+commit cc2444baa00d8c3846a15c29ff4ed58fe78da634
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Tue Jun 17 01:53:16 2014 -0700
+
+    Sphere accepted lazy cache, minor changes to TestCollatz, Updated inputs
+
+commit 19237d2f6b20f5f241aece16215a66701b963cd5
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Tue Jun 17 01:19:04 2014 -0700
+
+    Added lazy cache
+
+commit ab1d4080d07c34d5b8a22ea7883cd93ebb31c5f1
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Mon Jun 16 01:53:21 2014 -0700
+
+    Added the 2 optimizations, Sphere accepted
+
+commit d3c89ab625ce695d0a9c3895316be03c33a86daa
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Mon Jun 16 01:36:50 2014 -0700
+
+    Added Unit Tests
+
+commit e64acf73d14d0a3614ca92875a6081e79fc1966a
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Mon Jun 16 00:11:30 2014 -0700
+
+    Added Acceptance Tests for Simple Solution
+
+commit 129bf9104aabfb02577045d906f59f8a37b1334b
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Sun Jun 15 03:28:41 2014 -0700
+
+    Implement simplest solution, Sphere accepted, added SphereCollatz.c++
+
+commit c9881db7e1e52e661ab46935a6d47f1280286a73
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Sun Jun 15 02:20:36 2014 -0700
+
+    Added function to find cycle length
+
+commit f9a0d388bac3eab4103d229dd199db372be53011
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Wed Jun 11 05:38:09 2014 -0500
+
+    Added commands to run on my linux
+
+commit 8e558512e2170b147270e62f4d5dba8a3b7290e7
+Author: Hoang Pham <hphamnk@yahoo.com>
+Date:   Tue Jun 10 05:06:11 2014 -0500
+
+    Added skeleton
+
+commit 3bc1e23cda51203aed18e2cc39b4b5a284bf85d9
+Author: Hoang Pham <hphamnk@utexas.edu>
+Date:   Tue Jun 10 00:50:47 2014 -0500
+
+    Initial commit
